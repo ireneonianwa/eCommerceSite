@@ -5,7 +5,7 @@ Plan to have 'check in' communication times multiple times per day to keep each 
 Set deadlines with each other, agreeing on build progress steps expected at the next check in.
 
 * Create Application Packages: config, controller, model, repository, service, etc.
-1. Model
+1. Model - Michael
 - Defined models: User, Role, LineItem, Cart, Order, etc.
 - In model, create associations between objects and apply appropriate annotations (@Entity or @Id, etc) and validation annotations (@NotBlank ..) for imports.
 - Add source generators such as getters/setters, constructors, and toString().
@@ -25,7 +25,7 @@ Set deadlines with each other, agreeing on build progress steps expected at the 
 - Use annotation @Controller so that the methods return html, thymeleaf template pages to user
 - Build paths needed to render the browser pages and requests of the user via the browser
 
-5. Client Side Resources
+5. Client Side Resources - Irene & Michael (split at a later date)
 - Organize pages for the public facing 'storefront' side
 - Create folders for storefront and admin and respectfully add html pages
 -Connect template pages with mapped controller methods (GET and POST mapping) with return statements
