@@ -1,5 +1,8 @@
-package com.tts.eCommerce.model;
-
-public class Checkout {
-
-}
+//package com.tts.eCommerce.model;
+//
+//@Entity
+//public class Checkout {
+//	
+//	@AutoWired
+//	public String 
+//}
