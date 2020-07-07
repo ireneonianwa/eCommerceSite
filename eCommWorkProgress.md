@@ -6,6 +6,7 @@ Set deadlines with each other, agreeing on build progress steps expected at the 
 
 * Create Application Packages: config, controller, model, repository, service, etc.
 1. Model - Michael
+- Product model created - Irene 
 - Defined models: User, Role, LineItem, Cart, Order, etc.
 - In model, create associations between objects and apply appropriate annotations (@Entity or @Id, etc) and validation annotations (@NotBlank ..) for imports.
 - Add source generators such as getters/setters, constructors, and toString().
