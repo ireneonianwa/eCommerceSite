@@ -1,1 +1,2 @@
-eCommWorkProgress.md
+eCommerce Web Application Project
+
