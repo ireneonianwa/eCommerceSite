@@ -134,6 +134,13 @@ public class Product {
 	public Long getId() {
 		return id;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", wholesalePrice=" + wholesalePrice + ", retailPrice="
+				+ retailPrice + ", brand=" + brand + ", description=" + description + ", inventory=" + inventory
+				+ ", image=" + image + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+	}
 	
 	
 	
