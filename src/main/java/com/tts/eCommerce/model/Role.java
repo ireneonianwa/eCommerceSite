@@ -6,13 +6,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+
 @Entity
+@Component
 public class Role {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "role_id")
 	private Long id;
 	private String role;
+	
+	public final String ADMIN = "Admin";
 	public Role() {
 		
 	}
