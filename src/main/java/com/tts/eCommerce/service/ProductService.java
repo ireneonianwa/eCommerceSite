@@ -23,8 +23,6 @@ public class ProductService {
  
     public Product getProduct(Long Id) {
         return productRepository.getProductById(Id);
-//          .findById(id)
-//          .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
     }
  
     public void save(Product product) {
