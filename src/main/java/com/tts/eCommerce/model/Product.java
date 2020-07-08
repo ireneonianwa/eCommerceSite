@@ -33,9 +33,12 @@ public class Product {
 	@NotBlank(message = "Product brand cannot be blank")
 	private String brand;
 	
+	@NotBlank(message = "Product category cannot be blank")
+	private String category;
 	
 	private String description;
 	private Integer inventory; // range between 0 to positive
+	
 	private String image; //image attribute is a string representing the path where the image file is stored
 	
 	@CreationTimestamp
@@ -47,12 +50,17 @@ public class Product {
 	public Product() {
 	}
 
-	public Product(String name, Double wholesalePrice, Double retailPrice, String brand, String description,
+	public Product(@NotBlank(message = "Product name cannot be blank") String name,
+			@PositiveOrZero(message = "Product wholesale price cannot be negative") Double wholesalePrice,
+			@PositiveOrZero(message = "Product retail price cannot be negative") Double retailPrice,
+			@NotBlank(message = "Product brand cannot be blank") String brand,
+			@NotBlank(message = "Product category cannot be blank") String category, String description,
 			Integer inventory, String image, Date createdAt) {
 		this.name = name;
 		this.wholesalePrice = wholesalePrice;
 		this.retailPrice = retailPrice;
 		this.brand = brand;
+		this.category = category;
 		this.description = description;
 		this.inventory = inventory;
 		this.image = image;
@@ -89,6 +97,14 @@ public class Product {
 
 	public void setBrand(String brand) {
 		this.brand = brand;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getDescription() {
@@ -138,12 +154,9 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", wholesalePrice=" + wholesalePrice + ", retailPrice="
-				+ retailPrice + ", brand=" + brand + ", description=" + description + ", inventory=" + inventory
-				+ ", image=" + image + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
+				+ retailPrice + ", brand=" + brand + ", category=" + category + ", description=" + description
+				+ ", inventory=" + inventory + ", image=" + image + ", createdAt=" + createdAt + ", updatedAt="
+				+ updatedAt + "]";
 	}
-	
-	
-	
-	
 
 }
