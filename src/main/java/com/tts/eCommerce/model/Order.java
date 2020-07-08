@@ -1,8 +1,6 @@
 package com.tts.eCommerce.model;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +16,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 @Table(name = "orders")
@@ -36,84 +33,94 @@ public class Order {
 	private User user;
 
 //	@OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
-	private List<HashMap<Product, Integer>> orderItems;
+//	private List<HashMap<Product, Integer>> orderItems;
 
+	private String cart;
+	
 	private String orderStatus;
+	
+	private double totalAmount;
 
 	@CreationTimestamp
 	private Date createdAt;
 
-	@UpdateTimestamp
-	private Date updatedAt;
-
-	private double totalAmount;
 
 	public Order() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public Order(Long id, User user, List<HashMap<Product, Integer>> orderItems, String orderStatus, Date createdAt,
-			Date updatedAt, double totalAmount) {
-		this.id = id;
+
+	public Order(User user, String cart, String orderStatus, double totalAmount, Date createdAt) {
 		this.user = user;
-		this.orderItems = orderItems;
+		this.cart = cart;
 		this.orderStatus = orderStatus;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 		this.totalAmount = totalAmount;
+		this.createdAt = createdAt;
 	}
+
 
 	public User getUser() {
 		return user;
 	}
 
+
 	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public List<HashMap<Product, Integer>> getOrderItems() {
-		return orderItems;
+
+	public String getCart() {
+		return cart;
 	}
 
-	public void setOrderItems(List<HashMap<Product, Integer>> orderItems) {
-		this.orderItems = orderItems;
+
+	public void setCart(String cart) {
+		this.cart = cart;
 	}
+
 
 	public String getOrderStatus() {
 		return orderStatus;
 	}
 
+
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 	public double getTotalAmount() {
 		return totalAmount;
 	}
 
+
 	public void setTotalAmount(double totalAmount) {
 		this.totalAmount = totalAmount;
 	}
 
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+
 	public Long getId() {
 		return id;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", user=" + user + ", cart=" + cart + ", orderStatus=" + orderStatus
+				+ ", totalAmount=" + totalAmount + ", createdAt=" + createdAt + "]";
+	}
+
+	
+	
 	
 	
 }

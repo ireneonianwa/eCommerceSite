@@ -49,9 +49,26 @@ public class User {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), 
 	inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles;
+	
 
 	public User() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public User(
+			@Email(message = "Please provide a valid email") @NotEmpty(message = "Please provide an email") String email,
+			@Length(min = 5, message = "Your password must have at least 5 characters") String password,
+			@Length(min = 3, message = "Your username must be at least 3 characters") @Length(max = 15, message = "Your username can't be more than 15 characters") @Pattern(regexp = "[^\\s]", message = "Your username cannot have spaces") String username,
+			@NotEmpty(message = "Please provide your first name") String firstName,
+			@NotEmpty(message = "Please provide your last name") String lastName, Integer active, Set<Role> roles,
+			String cart) {
+		this.email = email;
+		this.password = password;
+		this.username = username;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.active = active;
+		this.roles = roles;
 	}
 
 	public String getEmail() {
@@ -113,7 +130,13 @@ public class User {
 	public Long getId() {
 		return id;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", username=" + username
+				+ ", firstName=" + firstName + ", lastName=" + lastName + ", active=" + active + ", roles=" + roles
+				+ "]";
+	}
+
 	
 }

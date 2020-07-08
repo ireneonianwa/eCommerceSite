@@ -3,12 +3,14 @@ package com.tts.eCommerce.service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.tts.eCommerce.model.Product;
 import com.tts.eCommerce.model.Role;
 import com.tts.eCommerce.model.User;
 import com.tts.eCommerce.repository.RoleRepository;
@@ -54,4 +56,11 @@ public class UserService {
 		  String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
 		  return findByUsername(loggedInUsername);
 		}
+	 
+	
+
+	 //Might have to delete later
+	public void updateCart(Map<Product, Integer> cart) {
+		
+	}
 }

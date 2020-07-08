@@ -7,15 +7,13 @@ public class Cart {
 	
 	private List<HashMap<Product, Integer>> lineitems;
 	
-	private int Quantity;
 
 	public Cart() {
 		
 	}
 
-	public Cart(List<HashMap<Product, Integer>> lineitems, int quantity) {
+	public Cart(List<HashMap<Product, Integer>> lineitems) {
 		this.lineitems = lineitems;
-		Quantity = quantity;
 	}
 
 	public List<HashMap<Product, Integer>> getLineitems() {
@@ -26,16 +24,5 @@ public class Cart {
 		this.lineitems = lineitems;
 	}
 
-	public int getQuantity() {
-		return Quantity;
-	}
-
-	public void setQuantity(int quantity) {
-		Quantity = quantity;
-	}
-
-	
-	
-	
 	
 }
