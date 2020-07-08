@@ -1,135 +1,90 @@
 package com.tts.eCommerce.model;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PositiveOrZero;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+//import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
+@Entity
+@Table(name = "orders")
+
 public class Order {
-	
-	private List<Order> order;
-	
-	
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "product_id")
+	@Column(name = "order_id")
 	private Long id;
-	
-	@NotBlank(message = "Product name cannot be blank")
-	private String name;
-	
-	@PositiveOrZero(message = "Product wholesale price cannot be negative")
-	private Double wholesalePrice;
-	
-	@PositiveOrZero(message = "Product retail price cannot be negative")
-	private Double retailPrice;
-	
-	@NotBlank(message = "Product brand cannot be blank")
-	private String brand;
-	
-	
-	private String description;
-	private Integer inventory; // range between 0 to positive
-	private String image; //image attribute is a string representing the path where the image file is stored
-	
+
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+	@JoinColumn(name = "user_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	private User user;
+
+//	@OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
+	private List<HashMap<Product, Integer>> orderItems;
+
+	private String orderStatus;
+
 	@CreationTimestamp
 	private Date createdAt;
-	
+
 	@UpdateTimestamp
 	private Date updatedAt;
+
+	private double totalAmount;
 
 	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(List<Order> order, @NotBlank(message = "Product name cannot be blank") String name,
-			@PositiveOrZero(message = "Product wholesale price cannot be negative") Double wholesalePrice,
-			@PositiveOrZero(message = "Product retail price cannot be negative") Double retailPrice,
-			@NotBlank(message = "Product brand cannot be blank") String brand, String description, Integer inventory,
-			String image, Date createdAt, Date updatedAt) {
-		this.order = order;
-		this.name = name;
-		this.wholesalePrice = wholesalePrice;
-		this.retailPrice = retailPrice;
-		this.brand = brand;
-		this.description = description;
-		this.inventory = inventory;
-		this.image = image;
+	public Order(Long id, User user, List<HashMap<Product, Integer>> orderItems, String orderStatus, Date createdAt,
+			Date updatedAt, double totalAmount) {
+		this.id = id;
+		this.user = user;
+		this.orderItems = orderItems;
+		this.orderStatus = orderStatus;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.totalAmount = totalAmount;
 	}
 
-	public List<Order> getOrder() {
-		return order;
+	public User getUser() {
+		return user;
 	}
 
-	public void setOrder(List<Order> order) {
-		this.order = order;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public String getName() {
-		return name;
+	public List<HashMap<Product, Integer>> getOrderItems() {
+		return orderItems;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setOrderItems(List<HashMap<Product, Integer>> orderItems) {
+		this.orderItems = orderItems;
 	}
 
-	public Double getWholesalePrice() {
-		return wholesalePrice;
+	public String getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setWholesalePrice(Double wholesalePrice) {
-		this.wholesalePrice = wholesalePrice;
-	}
-
-	public Double getRetailPrice() {
-		return retailPrice;
-	}
-
-	public void setRetailPrice(Double retailPrice) {
-		this.retailPrice = retailPrice;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Integer getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(Integer inventory) {
-		this.inventory = inventory;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
 	public Date getCreatedAt() {
@@ -148,11 +103,17 @@ public class Order {
 		this.updatedAt = updatedAt;
 	}
 
+	public double getTotalAmount() {
+		return totalAmount;
+	}
+
+	public void setTotalAmount(double totalAmount) {
+		this.totalAmount = totalAmount;
+	}
+
 	public Long getId() {
 		return id;
 	}
-	
-	
 	
 	
 }
