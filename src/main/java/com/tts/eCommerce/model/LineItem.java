@@ -1,140 +1,43 @@
 package com.tts.eCommerce.model;
 
-import java.util.Date;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PositiveOrZero;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import java.util.HashMap;
 
 public class LineItem {
 	
-	private String selectedQuantity;
+	private HashMap<Product, Integer> lineitem;
 	
-	@NotBlank(message = "Product name cannot be blank")
-	private String name;
+//	private Product product;
+//	
+//	private int selectedQuantity;
 	
-	@PositiveOrZero(message = "Product wholesale price cannot be negative")
-	private Double wholesalePrice;
-	
-	@PositiveOrZero(message = "Product retail price cannot be negative")
-	private Double retailPrice;
-	
-	@NotBlank(message = "Product brand cannot be blank")
-	private String brand;
-	
-	
-	private String description;
-	private Integer inventory; // range between 0 to positive
-	private String image; //image attribute is a string representing the path where the image file is stored
-	
-	@CreationTimestamp
-	private Date createdAt;
-	
-	@UpdateTimestamp
-	private Date updatedAt;
+	private double totalPrice;
 
 	public LineItem() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public LineItem(String selectedQuantity, @NotBlank(message = "Product name cannot be blank") String name,
-			@PositiveOrZero(message = "Product wholesale price cannot be negative") Double wholesalePrice,
-			@PositiveOrZero(message = "Product retail price cannot be negative") Double retailPrice,
-			@NotBlank(message = "Product brand cannot be blank") String brand, String description, Integer inventory,
-			String image, Date createdAt, Date updatedAt) {
-		this.selectedQuantity = selectedQuantity;
-		this.name = name;
-		this.wholesalePrice = wholesalePrice;
-		this.retailPrice = retailPrice;
-		this.brand = brand;
-		this.description = description;
-		this.inventory = inventory;
-		this.image = image;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
+	public LineItem(HashMap<Product, Integer> lineitem, double totalPrice) {
+		this.lineitem = lineitem;
+		this.totalPrice = totalPrice;
 	}
 
-	public String getSelectedQuantity() {
-		return selectedQuantity;
+	public HashMap<Product, Integer> getLineitem() {
+		return lineitem;
 	}
 
-	public void setSelectedQuantity(String selectedQuantity) {
-		this.selectedQuantity = selectedQuantity;
+	public void setLineitem(HashMap<Product, Integer> lineitem) {
+		this.lineitem = lineitem;
 	}
 
-	public String getName() {
-		return name;
+	public double getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
-	public Double getWholesalePrice() {
-		return wholesalePrice;
-	}
-
-	public void setWholesalePrice(Double wholesalePrice) {
-		this.wholesalePrice = wholesalePrice;
-	}
-
-	public Double getRetailPrice() {
-		return retailPrice;
-	}
-
-	public void setRetailPrice(Double retailPrice) {
-		this.retailPrice = retailPrice;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Integer getInventory() {
-		return inventory;
-	}
-
-	public void setInventory(Integer inventory) {
-		this.inventory = inventory;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
+	
 	
 	
 }
