@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ecomm</title>
+<link th:replace="fragments/head">
+</head>
+<body>
+	<div class="container-fluid">
+		<div th:replace="fragments/navbar"></div>
+		<div class="jumbotron col-md-8 col-md-offset-2">
+			<h2>New Product</h2>
+			<form th:action="@{/products/new}" th:object="${product}" method="post"
+				autocomplete="off">
+				<div class="form-group">
+					<label></label>
+				<div class="form-group">
+					<button class="btn btn-md btn-success btn-block" name="Submit"
+						value="Submit" type="Submit">Add Product</button>
+				</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script th:replace="fragments/scripts"></script>
+</body>
+</html>
