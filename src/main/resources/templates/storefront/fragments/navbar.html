@@ -2,7 +2,7 @@
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="/" style="color: #1da1f2"> 
-      <i class=""></i> Tech Talent Twitter
+      <i class=""></i> I & M stores
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
@@ -13,21 +13,21 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto" sec:authorize="!isAuthenticated()">
         <li class="nav-item active">
-          <a class="nav-link" style="color: #1da1f2" href="/tweets">Product</a>
+          <a class="nav-link" style="color: #1da1f2" href="/product">Product</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" style="color: #1da1f2" href="/tweets/new">About</a>
+          <a class="nav-link" style="color: #1da1f2" href="/about">About</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" style="color: #1da1f2" href="/users"><i class="fas fa-shoppingcart"></i>Cart</a>
+          <a class="nav-link" style="color: #1da1f2" href="/cart"><i class="fas fa-shoppingcart"></i>Cart</a>
         </li>
       </ul>
       <ul class="navbar-nav mr-auto" sec:authorize="isAuthenticated()">
         <li class="nav-item active">
-          <a class="nav-link" style="color: #1da1f2" href="/tweets">Products</a>
+          <a class="nav-link" style="color: #1da1f2" href="/product">Products</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" style="color: #1da1f2" href="/tweets/new">Order</a>
+          <a class="nav-link" style="color: #1da1f2" href="/orders">Order</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" style="color: #1da1f2" href="/users">Checkout</a>
