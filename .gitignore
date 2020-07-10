@@ -32,3 +32,5 @@ build/
 
 ## Application Properties
 application-key.properties
+##no ds-store##
+.DS_Store
