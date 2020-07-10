@@ -3,12 +3,12 @@ package com.tts.eCommerce.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.tts.eCommerce.model.Order;
+import com.tts.eCommerce.model.PurchaseOrder;
 
 @Repository
-public interface OrderRepository 
-	extends CrudRepository<Order, Long> {
+public interface PurchaseOrderRepository 
+	extends CrudRepository<PurchaseOrder, Long> {
 	
-	public Order findByOrder(String order);
+	public PurchaseOrder findByOrder(String order);
 
 }
