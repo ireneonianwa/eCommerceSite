@@ -5,31 +5,31 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tts.eCommerce.model.Order;
-import com.tts.eCommerce.repository.OrderRepository;
+import com.tts.eCommerce.model.PurchaseOrder;
+import com.tts.eCommerce.repository.PurchaseOrderRepository;
 
 @Service
-public class OrderService {
+public class PurchaseOrderService {
 	
 	@Autowired
-	private OrderRepository orderRepository;
+	private PurchaseOrderRepository orderRepository;
 	
-	public Order findByOrder(String order) {
+	public PurchaseOrder findByOrder(String order) {
 		return orderRepository.findByOrder(order);
 	}
 	
-    public Iterable<Order> getAllOrders() {
+    public Iterable<PurchaseOrder> getAllOrders() {
         return orderRepository.findAll();
     }
 	
     
-    public Order create(Order order) {
+    public PurchaseOrder create(PurchaseOrder order) {
         order.setCreatedAt(new Date());
         return this.orderRepository.save(order);
     }
  
    
-    public void update(Order order) {
+    public void update(PurchaseOrder order) {
         this.orderRepository.save(order);
     }
 }
