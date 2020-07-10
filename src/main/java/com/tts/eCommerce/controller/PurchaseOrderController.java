@@ -1,5 +1,5 @@
 package com.tts.eCommerce.controller;
 
-public class OrderController {
+public class PurchaseOrderController {
 
 }
