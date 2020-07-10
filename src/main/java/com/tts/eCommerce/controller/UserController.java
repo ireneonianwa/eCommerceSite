@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tts.eCommerce.model.Order;
+import com.tts.eCommerce.model.PurchaseOrder;
 import com.tts.eCommerce.model.User;
-import com.tts.eCommerce.service.OrderService;
+import com.tts.eCommerce.service.PurchaseOrderService;
 import com.tts.eCommerce.service.UserService;
 
 
@@ -24,12 +24,12 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	@Autowired 
-	private OrderService orderService;
+	private PurchaseOrderService orderService;
 	
 	 @GetMapping(value = "/users/{username}")
 	  public String getUser(@PathVariable(value="username") String username, Model model) {
 	    User user = userService.findByUsername(username);
-	    List<Order> orders = orderService.findByOrder(order);
+	    List<PurchaseOrder> orders = orderService.findByOrder(order);
 	    User loggedInUser = userService.getLoggedInUser();
 	    }
 }
