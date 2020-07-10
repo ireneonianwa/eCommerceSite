@@ -20,7 +20,7 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 @Table(name = "orders")
 
-public class Order {
+public class PurchaseOrder {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,11 +45,11 @@ public class Order {
 	private Date createdAt;
 
 
-	public Order() {
+	public PurchaseOrder() {
 	}
 
 
-	public Order(User user, String cart, String orderStatus, double totalAmount, Date createdAt) {
+	public PurchaseOrder(User user, String cart, String orderStatus, double totalAmount, Date createdAt) {
 		this.user = user;
 		this.cart = cart;
 		this.orderStatus = orderStatus;
