@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tts.eCommerce.service.CartService;
-import com.tts.eCommerce.service.OrderService;
+import com.tts.eCommerce.service.PurchaseOrderService;
 import com.tts.eCommerce.service.ProductService;
 import com.tts.eCommerce.service.UserService;
 
@@ -19,7 +19,7 @@ public class AdminController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private OrderService orderService;
+	private PurchaseOrderService orderService;
 	@Autowired
 	private CartService cartService;
 	
