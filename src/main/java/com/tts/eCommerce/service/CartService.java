@@ -23,4 +23,14 @@ public class CartService {
 		cart.setLineitems(cartLineItems);
 		return cart;
 	}
+	
+	public Cart updateLineItemQuantity(Cart cart, Long productId, Integer quantity){
+		  Product productToUpdate = productService.findById(productId);
+		  List<HashMap<Product, Integer>> cartItems = cart.getLineitems();
+		  for (HashMap<Product, Integer> cartItem : cartItems){
+		    cartItem.replace(productToUpdate, quantity);
+		  }
+		  cart.setLineitems(cartItems);
+		  return cart;
+		}
 }
