@@ -27,9 +27,10 @@ public class UserController {
 	private PurchaseOrderService orderService;
 	
 	 @GetMapping(value = "/users/{username}")
-	  public String getUser(@PathVariable(value="username") String username, Model model) {
+	  public String getUser(@PathVariable(value="username") String username, Model model, String order) {
 	    User user = userService.findByUsername(username);
-	    List<PurchaseOrder> orders = orderService.findByOrder(order);
+	    PurchaseOrder orders = orderService.findByOrder(order);
 	    User loggedInUser = userService.getLoggedInUser();
+		return order;
 	    }
 }
